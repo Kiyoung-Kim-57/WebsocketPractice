@@ -11,6 +11,14 @@
 		60867FF22BE9FC7C00076A6B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60867FF12BE9FC7C00076A6B /* ContentView.swift */; };
 		60867FF42BE9FC7E00076A6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60867FF32BE9FC7E00076A6B /* Assets.xcassets */; };
 		60867FF72BE9FC7E00076A6B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60867FF62BE9FC7E00076A6B /* Preview Assets.xcassets */; };
+		60867FFE2BEA117700076A6B /* KeyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60867FFD2BEA117700076A6B /* KeyList.plist */; };
+		608680002BEA126700076A6B /* WebsocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60867FFF2BEA126700076A6B /* WebsocketManager.swift */; };
+		608680032BEA987100076A6B /* Extension+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608680022BEA987100076A6B /* Extension+Bundle.swift */; };
+		60EADB222BEC9D0F00B28CC3 /* SwiftJWT in Frameworks */ = {isa = PBXBuildFile; productRef = 60EADB212BEC9D0F00B28CC3 /* SwiftJWT */; };
+		60EADB252BEDE83100B28CC3 /* TickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EADB242BEDE83100B28CC3 /* TickerModel.swift */; };
+		60EADB272BEE107000B28CC3 /* UpbitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EADB262BEE107000B28CC3 /* UpbitManager.swift */; };
+		60EADB2B2BF2017800B28CC3 /* UpbitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EADB2A2BF2017800B28CC3 /* UpbitViewModel.swift */; };
+		60EADB2D2BF2038000B28CC3 /* MarketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EADB2C2BF2038000B28CC3 /* MarketModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +27,13 @@
 		60867FF12BE9FC7C00076A6B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		60867FF32BE9FC7E00076A6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60867FF62BE9FC7E00076A6B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		60867FFD2BEA117700076A6B /* KeyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyList.plist; sourceTree = "<group>"; };
+		60867FFF2BEA126700076A6B /* WebsocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsocketManager.swift; sourceTree = "<group>"; };
+		608680022BEA987100076A6B /* Extension+Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Bundle.swift"; sourceTree = "<group>"; };
+		60EADB242BEDE83100B28CC3 /* TickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerModel.swift; sourceTree = "<group>"; };
+		60EADB262BEE107000B28CC3 /* UpbitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitManager.swift; sourceTree = "<group>"; };
+		60EADB2A2BF2017800B28CC3 /* UpbitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitViewModel.swift; sourceTree = "<group>"; };
+		60EADB2C2BF2038000B28CC3 /* MarketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60EADB222BEC9D0F00B28CC3 /* SwiftJWT in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +67,14 @@
 		60867FEE2BE9FC7C00076A6B /* WebsocketProject */ = {
 			isa = PBXGroup;
 			children = (
+				60EADB292BF1F7D300B28CC3 /* ViewModel */,
+				60EADB282BF1F7BD00B28CC3 /* Networking */,
+				60EADB232BEDE82500B28CC3 /* Model */,
+				608680012BEA985900076A6B /* Util */,
 				60867FEF2BE9FC7C00076A6B /* WebsocketProjectApp.swift */,
 				60867FF12BE9FC7C00076A6B /* ContentView.swift */,
+				60867FFF2BEA126700076A6B /* WebsocketManager.swift */,
+				60867FFD2BEA117700076A6B /* KeyList.plist */,
 				60867FF32BE9FC7E00076A6B /* Assets.xcassets */,
 				60867FF52BE9FC7E00076A6B /* Preview Content */,
 			);
@@ -65,6 +87,39 @@
 				60867FF62BE9FC7E00076A6B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		608680012BEA985900076A6B /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				608680022BEA987100076A6B /* Extension+Bundle.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		60EADB232BEDE82500B28CC3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				60EADB242BEDE83100B28CC3 /* TickerModel.swift */,
+				60EADB2C2BF2038000B28CC3 /* MarketModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		60EADB282BF1F7BD00B28CC3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				60EADB262BEE107000B28CC3 /* UpbitManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		60EADB292BF1F7D300B28CC3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				60EADB2A2BF2017800B28CC3 /* UpbitViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +138,9 @@
 			dependencies = (
 			);
 			name = WebsocketProject;
+			packageProductDependencies = (
+				60EADB212BEC9D0F00B28CC3 /* SwiftJWT */,
+			);
 			productName = WebsocketProject;
 			productReference = 60867FEC2BE9FC7C00076A6B /* WebsocketProject.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +169,9 @@
 				Base,
 			);
 			mainGroup = 60867FE32BE9FC7C00076A6B;
+			packageReferences = (
+				60EADB202BEC9D0F00B28CC3 /* XCRemoteSwiftPackageReference "Swift-JWT" */,
+			);
 			productRefGroup = 60867FED2BE9FC7C00076A6B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,6 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60867FFE2BEA117700076A6B /* KeyList.plist in Resources */,
 				60867FF72BE9FC7E00076A6B /* Preview Assets.xcassets in Resources */,
 				60867FF42BE9FC7E00076A6B /* Assets.xcassets in Resources */,
 			);
@@ -138,7 +200,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				60867FF22BE9FC7C00076A6B /* ContentView.swift in Sources */,
+				60EADB2D2BF2038000B28CC3 /* MarketModel.swift in Sources */,
 				60867FF02BE9FC7C00076A6B /* WebsocketProjectApp.swift in Sources */,
+				60EADB2B2BF2017800B28CC3 /* UpbitViewModel.swift in Sources */,
+				608680002BEA126700076A6B /* WebsocketManager.swift in Sources */,
+				608680032BEA987100076A6B /* Extension+Bundle.swift in Sources */,
+				60EADB272BEE107000B28CC3 /* UpbitManager.swift in Sources */,
+				60EADB252BEDE83100B28CC3 /* TickerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +348,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +378,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,6 +414,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		60EADB202BEC9D0F00B28CC3 /* XCRemoteSwiftPackageReference "Swift-JWT" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/Swift-JWT.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		60EADB212BEC9D0F00B28CC3 /* SwiftJWT */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 60EADB202BEC9D0F00B28CC3 /* XCRemoteSwiftPackageReference "Swift-JWT" */;
+			productName = SwiftJWT;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 60867FE42BE9FC7C00076A6B /* Project object */;
 }

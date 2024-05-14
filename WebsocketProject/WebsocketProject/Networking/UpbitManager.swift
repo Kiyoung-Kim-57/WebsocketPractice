@@ -55,6 +55,7 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
         print(#function)
         websocket?.cancel()
         isConnect = false
+        timer?.invalidate()
     }
     
     
@@ -105,20 +106,16 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
     private func ping() {
         print(#function)
         //연결되어 있을 동안에만 작동
-        if isConnect {
-            self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { [weak self] _ in
-                self?.websocket?.sendPing(pongReceiveHandler: { error in
-                    if let error = error {
-                        print("error occured in '\(#function)' : \(error.localizedDescription)")
-                    } else {
-                        print("pong")
-                    }
-                })
+        self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { [weak self] _ in
+            self?.websocket?.sendPing(pongReceiveHandler: { error in
+                if let error = error {
+                    print("error occured in '\(#function)' : \(error.localizedDescription)")
+                } else {
+                    print("pong")
+                }
             })
-        } else {
-            //연결되어 있지 않은 경우 타이머 초기화
-            timer?.invalidate()
-        }
+        })
+        
     }
     
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {

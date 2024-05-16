@@ -24,7 +24,7 @@ struct ContentView: View {
                     })
             }
             if let price = upbitViewModel.presentPrice {
-                Text("₩ \(price.tradePrice)")
+                Text("₩ \(price.presentPrice)")
             } else {
                 Text("No Price Data")
             }
@@ -34,6 +34,6 @@ struct ContentView: View {
     }
 }
 
-//#Preview {
-//    ContentView()
-//}
+#Preview {
+    ContentView()
+}

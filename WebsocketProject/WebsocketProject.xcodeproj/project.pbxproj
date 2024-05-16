@@ -13,7 +13,7 @@
 		60867FF72BE9FC7E00076A6B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60867FF62BE9FC7E00076A6B /* Preview Assets.xcassets */; };
 		60867FFE2BEA117700076A6B /* KeyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60867FFD2BEA117700076A6B /* KeyList.plist */; };
 		608680032BEA987100076A6B /* Extension+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608680022BEA987100076A6B /* Extension+Bundle.swift */; };
-		6092FE3C2BF48D6D0050C876 /* OneMinCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6092FE3B2BF48D6D0050C876 /* OneMinCharts.swift */; };
+		6092FE3C2BF48D6D0050C876 /* CoinCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6092FE3B2BF48D6D0050C876 /* CoinCharts.swift */; };
 		6092FE3E2BF49EBA0050C876 /* CoinChartsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6092FE3D2BF49EBA0050C876 /* CoinChartsData.swift */; };
 		60EADB252BEDE83100B28CC3 /* TickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EADB242BEDE83100B28CC3 /* TickerModel.swift */; };
 		60EADB272BEE107000B28CC3 /* UpbitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EADB262BEE107000B28CC3 /* UpbitManager.swift */; };
@@ -29,7 +29,7 @@
 		60867FF62BE9FC7E00076A6B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		60867FFD2BEA117700076A6B /* KeyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyList.plist; sourceTree = "<group>"; };
 		608680022BEA987100076A6B /* Extension+Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Bundle.swift"; sourceTree = "<group>"; };
-		6092FE3B2BF48D6D0050C876 /* OneMinCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMinCharts.swift; sourceTree = "<group>"; };
+		6092FE3B2BF48D6D0050C876 /* CoinCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCharts.swift; sourceTree = "<group>"; };
 		6092FE3D2BF49EBA0050C876 /* CoinChartsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinChartsData.swift; sourceTree = "<group>"; };
 		60EADB242BEDE83100B28CC3 /* TickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerModel.swift; sourceTree = "<group>"; };
 		60EADB262BEE107000B28CC3 /* UpbitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitManager.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				60867FF12BE9FC7C00076A6B /* ContentView.swift */,
-				6092FE3B2BF48D6D0050C876 /* OneMinCharts.swift */,
+				6092FE3B2BF48D6D0050C876 /* CoinCharts.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,7 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6092FE3C2BF48D6D0050C876 /* OneMinCharts.swift in Sources */,
+				6092FE3C2BF48D6D0050C876 /* CoinCharts.swift in Sources */,
 				60867FF22BE9FC7C00076A6B /* ContentView.swift in Sources */,
 				60EADB2D2BF2038000B28CC3 /* MarketModel.swift in Sources */,
 				60867FF02BE9FC7C00076A6B /* WebsocketProjectApp.swift in Sources */,

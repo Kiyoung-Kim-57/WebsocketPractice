@@ -15,10 +15,12 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
     private var websocket: URLSessionWebSocketTask?
     
     var isConnect = false
+    //받아온 데이터를 사용할 서브젝트
     var dataPassThrough = PassthroughSubject<TickerModel, Never>()
     
     var marketData: [MarketModel] = [
-        .init(id: UUID(), code: "KRW-BTC", korName: "비트코인", engName: "Bitcoin")
+        .init(id: UUID(), code: "KRW-BTC", korName: "비트코인", engName: "Bitcoin"),
+        .init(id: UUID(), code: "KRW-ETH", korName: "이더리움", engName: "Ethereum")
     ]
     
     private override init() {
@@ -98,7 +100,7 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
                 print("error occured in '\(#function)' : \(error.localizedDescription)")
                 return
             }
-            
+            //지속적인 메시지 수신
             self?.receiveMessage()
         })
     }

@@ -8,7 +8,8 @@ import Foundation
 // Received Data model from websocket
 struct TickerModel: Codable {
     let type, code: String
-    let openingPrice, highPrice, lowPrice, tradePrice: Int
+    let openingPrice, highPrice, lowPrice: Double
+    let tradePrice: Double
     let prevClosingPrice: Int
     let accTradePrice: Double
     let change: String

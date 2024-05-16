@@ -9,12 +9,14 @@ import SwiftUI
 import Charts
 //Custom Chart
 struct CoinCharts: View {
-    @ObservedObject var upbitViewModel: UpbitViewModel = UpbitViewModel(market: UpbitManager.shared.marketData[1])
+    @ObservedObject var upbitViewModel: UpbitViewModel = UpbitViewModel(market: UpbitManager.shared.marketData[0])
     //코인 종류별 들어오는 가격에 따른 높이 가중치 변화
-    @State var chartOffset: Double = 0
+    var chartOffset: Double {
+        upbitViewModel.chartData[upbitViewModel.chartData.count - 1].startLine
+    }
     var screenHeightRatio: CGFloat {
         guard let firstPrice = upbitViewModel.firstPrice else { return 0 }
-        return 2500 / (firstPrice / 100)
+        return 1500 / (firstPrice / 100)
     }
     var screenWidth: CGFloat = 150
     
@@ -30,7 +32,7 @@ struct CoinCharts: View {
                 chartBar(barWidth: 10, change: presentPrice.change * screenHeightRatio, startLine: presentPrice.change >= 0 ? presentPrice.startLine * screenHeightRatio : (presentPrice.startLine + presentPrice.change) * screenHeightRatio )
             }
         }
-        .offset(y: chartOffset)
+        .offset(y: chartOffset * screenHeightRatio / 2)
         .padding(10)
     }
 }
@@ -59,6 +61,6 @@ struct chartBar: View {
     }
 }
 //
-#Preview {
-    CoinCharts()
-}
+//#Preview {
+//    CoinCharts()
+//}

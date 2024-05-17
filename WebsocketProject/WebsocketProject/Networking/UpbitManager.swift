@@ -19,8 +19,8 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
     var dataPassThrough = PassthroughSubject<TickerModel, Never>()
     
     var marketData: [MarketModel] = [
-        .init(id: UUID(), code: "KRW-BTC", korName: "비트코인", engName: "Bitcoin"),
-        .init(id: UUID(), code: "KRW-ETH", korName: "이더리움", engName: "Ethereum")
+        .init(code: "KRW-BTC", korName: "비트코인", engName: "Bitcoin", marketWarning: "good"),
+        .init(code: "KRW-ETH", korName: "이더리움", engName: "Ethereum", marketWarning: "good")
     ]
     
     private override init() {
@@ -28,22 +28,48 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
     }
     
     //Url Components
-    var url: URL {
-        var coinUrlComponent: URLComponents {
-            var urlCom = URLComponents()
-            urlCom.scheme = "wss"
-            urlCom.host = "api.upbit.com"
-            return urlCom
-        }
-        
+    var coinUrlComponent: URLComponents {
+        var urlCom = URLComponents()
+        urlCom.scheme = "wss"
+        urlCom.host = "api.upbit.com"
+        return urlCom
+    }
+    //Url for Websocket
+    var webSocketUrl: URL {
         var components = coinUrlComponent
         components.path = "/websocket/v1"
         return components.url!
     }
+    //Url for Http
+    var httpUrl: URL {
+        var components = coinUrlComponent
+        components.scheme = "https"
+        components.path = "/v1/market/all"
+        return components.url!
+    }
+    
+    func marketCodesRequest(completion: @escaping (Result<[MarketModel], ConnectError>) -> Void) {
+        let request = URLRequest(url: httpUrl)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            guard let data = data, error == nil else { return completion(.failure(.connectError)) }
+            
+            let marketResponse = try? JSONDecoder().decode([MarketModel].self , from: data)
+            
+            if let market = marketResponse {
+                completion(.success(market))
+            } else {
+                completion(.failure(.connectError))
+            }
+        }.resume()
+    }
+    
+    
     
     func connect() {
         print(#function)
-        let request = URLRequest(url: url)
+        let request = URLRequest(url: webSocketUrl)
         
         websocket = URLSession.shared.webSocketTask(with: request)
         websocket?.resume()
@@ -132,4 +158,11 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
     }
     
     
+}
+
+
+extension UpbitManager {
+    enum ConnectError: Error {
+        case connectError
+    }
 }

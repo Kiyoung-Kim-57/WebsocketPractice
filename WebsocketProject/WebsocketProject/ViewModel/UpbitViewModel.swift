@@ -24,34 +24,53 @@ class UpbitViewModel: ObservableObject {
         .init(id: UUID(), presentPrice: 0, prevPrice: 0, prevChange: 0, startLine: 0, highestPrice: 0, lowestPrice: 0, chartTime: "11:00")
         
     ]
+    //조회할 마켓 리스트
+    @Published var marketList: [MarketModel] = []
+    //이전 시간의 가격
     var prevPrice: Double?
+    //처음 입력된 가격
     var firstPrice: Double?
-    var isPrevChecked = true
-    var isFirstChecked = true
+    //가격이 저장됐는지 여부
+    var isPrevChecked = false
+    var isFirstChecked = false
+    //조회할 코인 정보
     var market: MarketModel
+    //주기적으로 차트를 업데이트할 타이머
     var timer: Timer?
+    //Combine cacellable set
     var cancellable = Set<AnyCancellable>()
     
     init(market: MarketModel) {
         self.market = market
         //객체가 생성될 때 웹소켓에 연결 후 메시지 전송
-        UpbitManager.shared.connect()
-        UpbitManager.shared.sendMessage(market.code)
+//        UpbitManager.shared.connect()
+//        UpbitManager.shared.sendMessage(market.code)
         
+        //마켓코드 리퀘스트 받아서 저장
+        UpbitManager.shared.marketCodesRequest {[weak self] result in
+            switch result {
+            case .success(let success):
+                self?.marketList = success
+            case .failure(let failure):
+                print("error occured in\(#function): \(failure.localizedDescription)")
+            }
+        }
+        
+        //웹소켓으로 받은 데이터를 컴바인으로 처리
         UpbitManager.shared.dataPassThrough
             .receive(on: DispatchQueue.main)
             .sink { [weak self] ticker in
                 guard let self = self else { return }
                 
-                if isPrevChecked {
+                if !isPrevChecked {
                     self.prevPrice = ticker.tradePrice
                 }
-                isPrevChecked = false
+                isPrevChecked = true
                 
-                if isFirstChecked {
+                if !isFirstChecked {
                     self.firstPrice = ticker.tradePrice
                 }
-                isFirstChecked = false
+                isFirstChecked = true
                 
                 self.presentPrice = CoinChartsData(id: UUID(),
                                                    presentPrice: ticker.tradePrice,
@@ -65,8 +84,10 @@ class UpbitViewModel: ObservableObject {
             .store(in: &cancellable)
         //5초에 한번씩 값 저장
         timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { [weak self] _ in
+            
             guard let self = self, let price = presentPrice else  { return }
-            self.isPrevChecked = true
+            
+            self.isPrevChecked = false
             if self.chartData.count > 19 {
                 self.chartData = Array(self.chartData.dropFirst())
             }

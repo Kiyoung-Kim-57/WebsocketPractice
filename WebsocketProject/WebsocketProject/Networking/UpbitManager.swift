@@ -19,9 +19,10 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
     var dataPassThrough = PassthroughSubject<TickerModel, Never>()
     
     var marketData: [MarketModel] = [
-        .init(code: "KRW-BTC", korName: "비트코인", engName: "Bitcoin", marketWarning: "good"),
-        .init(code: "KRW-ETH", korName: "이더리움", engName: "Ethereum", marketWarning: "good")
+        .init(code: "KRW-BTC", korName: "비트코인", engName: "Bitcoin"),
+        .init(code: "KRW-ETH", korName: "이더리움", engName: "Ethereum")
     ]
+    
     
     private override init() {
         super.init()
@@ -61,6 +62,7 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
                 completion(.success(market))
             } else {
                 completion(.failure(.connectError))
+                print("decoding error")
             }
         }.resume()
     }
@@ -68,7 +70,7 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
     
     
     func connect() {
-        print(#function)
+//        print(#function)
         let request = URLRequest(url: webSocketUrl)
         
         websocket = URLSession.shared.webSocketTask(with: request)
@@ -88,7 +90,7 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
     
     
     func sendMessage(_ market: String) {
-        print(#function)
+//        print(#function)
         guard let websocket = websocket else { return }
         let message = """
         [{"ticket":"test"},{"type":"ticker","codes":["\(market)"]}]
@@ -102,7 +104,7 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
     }
     
     func receiveMessage() {
-        print(#function)
+//        print(#function)
         guard let websocket = websocket else { return }
         
         websocket.receive(completionHandler: { [weak self] result in
@@ -132,7 +134,7 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
     }
     
     private func ping() {
-        print(#function)
+//        print(#function)
         //연결되어 있을 동안에만 작동
         self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { [weak self] _ in
             self?.websocket?.sendPing(pongReceiveHandler: { error in

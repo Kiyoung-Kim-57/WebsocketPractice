@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60115EC42BF87D680028D148 /* TestUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60115EC32BF87D680028D148 /* TestUI.swift */; };
+		60115EC62BF89BD90028D148 /* MarketList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60115EC52BF89BD90028D148 /* MarketList.swift */; };
 		60867FF02BE9FC7C00076A6B /* WebsocketProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60867FEF2BE9FC7C00076A6B /* WebsocketProjectApp.swift */; };
 		60867FF22BE9FC7C00076A6B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60867FF12BE9FC7C00076A6B /* ContentView.swift */; };
 		60867FF42BE9FC7E00076A6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60867FF32BE9FC7E00076A6B /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		60115EC32BF87D680028D148 /* TestUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUI.swift; sourceTree = "<group>"; };
+		60115EC52BF89BD90028D148 /* MarketList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketList.swift; sourceTree = "<group>"; };
 		60867FEC2BE9FC7C00076A6B /* WebsocketProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebsocketProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60867FEF2BE9FC7C00076A6B /* WebsocketProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsocketProjectApp.swift; sourceTree = "<group>"; };
 		60867FF12BE9FC7C00076A6B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 			children = (
 				60867FF12BE9FC7C00076A6B /* ContentView.swift */,
 				6092FE3B2BF48D6D0050C876 /* CoinCharts.swift */,
+				60115EC32BF87D680028D148 /* TestUI.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				60EADB2A2BF2017800B28CC3 /* UpbitViewModel.swift */,
+				60115EC52BF89BD90028D148 /* MarketList.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -208,9 +214,11 @@
 			files = (
 				6092FE3C2BF48D6D0050C876 /* CoinCharts.swift in Sources */,
 				60867FF22BE9FC7C00076A6B /* ContentView.swift in Sources */,
+				60115EC62BF89BD90028D148 /* MarketList.swift in Sources */,
 				60EADB2D2BF2038000B28CC3 /* MarketModel.swift in Sources */,
 				60867FF02BE9FC7C00076A6B /* WebsocketProjectApp.swift in Sources */,
 				60EADB2B2BF2017800B28CC3 /* UpbitViewModel.swift in Sources */,
+				60115EC42BF87D680028D148 /* TestUI.swift in Sources */,
 				608680032BEA987100076A6B /* Extension+Bundle.swift in Sources */,
 				60EADB272BEE107000B28CC3 /* UpbitManager.swift in Sources */,
 				6092FE3E2BF49EBA0050C876 /* CoinChartsData.swift in Sources */,

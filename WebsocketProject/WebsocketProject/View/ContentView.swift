@@ -9,28 +9,35 @@ import SwiftUI
 
 struct ContentView: View {
     //market data - bitcoin in korea
-    @StateObject var upbitViewModel: UpbitViewModel = UpbitViewModel(market: UpbitManager.shared.marketData[0])
+//    @StateObject var upbitViewModel: UpbitViewModel = UpbitViewModel(market: UpbitManager.shared.marketData[0])
+    @ObservedObject var marketList: MarketList = MarketList()
     
     var body: some View {
-        VStack {
-            Button {
-                UpbitManager.shared.disconnect()
-            } label: {
-                Text("Disconnect WebSocket")
-                    .foregroundStyle(Color.white)
-                    .padding(10)
-                    .background(content: {
-                        RoundedRectangle(cornerRadius: 10)
-                    })
-            }
-            if let price = upbitViewModel.presentPrice {
-                Text("₩ \(price.presentPrice)")
-            } else {
-                Text("No Price Data")
-            }
+        NavigationStack {
+                ScrollView{
+                    ForEach(marketList.marketList, id: \.code) { data in
+                        
+                        NavigationLink {
+                            CoinCharts(upbitViewModel: UpbitViewModel(market: data))
+                            
+                            .onAppear{
+                                UpbitManager.shared.connect()
+                                UpbitManager.shared.sendMessage(data.code)
+                            }
+                            .onDisappear{
+                                UpbitManager.shared.disconnect()
+                            }
+                        } label: {
+                            Text("\(data.code), \(data.korName)")
+                        }
+                        
+                    }
+                }
             
         }
-        .padding()
+        .onAppear{
+            marketList.loadMarketList()
+        }
     }
 }
 

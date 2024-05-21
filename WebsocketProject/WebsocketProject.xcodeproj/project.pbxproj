@@ -10,23 +10,6 @@
 		60115EC42BF87D680028D148 /* TestUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60115EC32BF87D680028D148 /* TestUI.swift */; };
 		60115EC62BF89BD90028D148 /* MarketList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60115EC52BF89BD90028D148 /* MarketList.swift */; };
 		60115EC92BFB82B30028D148 /* ImageCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60115EC82BFB82B30028D148 /* ImageCases.swift */; };
-		60115ED32BFC69480028D148 /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60115ED22BFC69480028D148 /* WatchContentView.swift */; };
-		60115ED52BFC69490028D148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60115ED42BFC69490028D148 /* Assets.xcassets */; };
-		60115ED82BFC69490028D148 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60115ED72BFC69490028D148 /* Preview Assets.xcassets */; };
-		60115EDB2BFC69490028D148 /* WebSocketProject Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 60115ECE2BFC69480028D148 /* WebSocketProject Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		60115EE02BFC6CB90028D148 /* TestUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60115EC32BF87D680028D148 /* TestUI.swift */; };
-		60115EE12BFC6CB90028D148 /* WebsocketProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60867FEF2BE9FC7C00076A6B /* WebsocketProjectApp.swift */; };
-		60115EE22BFC6CB90028D148 /* Extension+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608680022BEA987100076A6B /* Extension+Bundle.swift */; };
-		60115EE32BFC6CB90028D148 /* UpbitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EADB2A2BF2017800B28CC3 /* UpbitViewModel.swift */; };
-		60115EE42BFC6CB90028D148 /* MarketList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60115EC52BF89BD90028D148 /* MarketList.swift */; };
-		60115EE52BFC6CB90028D148 /* UpbitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EADB262BEE107000B28CC3 /* UpbitManager.swift */; };
-		60115EE82BFC6CB90028D148 /* TickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EADB242BEDE83100B28CC3 /* TickerModel.swift */; };
-		60115EE92BFC6CB90028D148 /* CoinChartsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6092FE3D2BF49EBA0050C876 /* CoinChartsData.swift */; };
-		60115EEA2BFC6CB90028D148 /* MarketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EADB2C2BF2038000B28CC3 /* MarketModel.swift */; };
-		60115EEB2BFC6CB90028D148 /* ImageCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60115EC82BFB82B30028D148 /* ImageCases.swift */; };
-		60115EED2BFC6D420028D148 /* CoinWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60115EEC2BFC6D420028D148 /* CoinWatchView.swift */; };
-		60115EEE2BFC6DFB0028D148 /* CoinCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6092FE3B2BF48D6D0050C876 /* CoinCharts.swift */; };
-		60115EEF2BFC6DFB0028D148 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60867FF12BE9FC7C00076A6B /* ContentView.swift */; };
 		60867FF02BE9FC7C00076A6B /* WebsocketProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60867FEF2BE9FC7C00076A6B /* WebsocketProjectApp.swift */; };
 		60867FF22BE9FC7C00076A6B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60867FF12BE9FC7C00076A6B /* ContentView.swift */; };
 		60867FF42BE9FC7E00076A6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60867FF32BE9FC7E00076A6B /* Assets.xcassets */; };
@@ -41,16 +24,6 @@
 		60EADB2D2BF2038000B28CC3 /* MarketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EADB2C2BF2038000B28CC3 /* MarketModel.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		60115ED92BFC69490028D148 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 60867FE42BE9FC7C00076A6B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 60115ECD2BFC69480028D148;
-			remoteInfo = "WebSocketProject Watch App";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		60115EDF2BFC69490028D148 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -58,7 +31,6 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				60115EDB2BFC69490028D148 /* WebSocketProject Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,11 +41,6 @@
 		60115EC32BF87D680028D148 /* TestUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUI.swift; sourceTree = "<group>"; };
 		60115EC52BF89BD90028D148 /* MarketList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketList.swift; sourceTree = "<group>"; };
 		60115EC82BFB82B30028D148 /* ImageCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCases.swift; sourceTree = "<group>"; };
-		60115ECE2BFC69480028D148 /* WebSocketProject Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WebSocketProject Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		60115ED22BFC69480028D148 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
-		60115ED42BFC69490028D148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		60115ED72BFC69490028D148 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		60115EEC2BFC6D420028D148 /* CoinWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinWatchView.swift; sourceTree = "<group>"; };
 		60867FEC2BE9FC7C00076A6B /* WebsocketProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebsocketProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60867FEF2BE9FC7C00076A6B /* WebsocketProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsocketProjectApp.swift; sourceTree = "<group>"; };
 		60867FF12BE9FC7C00076A6B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,13 +57,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		60115ECB2BFC69480028D148 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		60867FE92BE9FC7C00076A6B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,30 +75,10 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
-		60115ECF2BFC69480028D148 /* WebSocketProject Watch App */ = {
-			isa = PBXGroup;
-			children = (
-				60115ED22BFC69480028D148 /* WatchContentView.swift */,
-				60115ED42BFC69490028D148 /* Assets.xcassets */,
-				60115ED62BFC69490028D148 /* Preview Content */,
-				60115EEC2BFC6D420028D148 /* CoinWatchView.swift */,
-			);
-			path = "WebSocketProject Watch App";
-			sourceTree = "<group>";
-		};
-		60115ED62BFC69490028D148 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				60115ED72BFC69490028D148 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 		60867FE32BE9FC7C00076A6B = {
 			isa = PBXGroup;
 			children = (
 				60867FEE2BE9FC7C00076A6B /* WebsocketProject */,
-				60115ECF2BFC69480028D148 /* WebSocketProject Watch App */,
 				60867FED2BE9FC7C00076A6B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -147,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				60867FEC2BE9FC7C00076A6B /* WebsocketProject.app */,
-				60115ECE2BFC69480028D148 /* WebSocketProject Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,23 +164,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		60115ECD2BFC69480028D148 /* WebSocketProject Watch App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 60115EDC2BFC69490028D148 /* Build configuration list for PBXNativeTarget "WebSocketProject Watch App" */;
-			buildPhases = (
-				60115ECA2BFC69480028D148 /* Sources */,
-				60115ECB2BFC69480028D148 /* Frameworks */,
-				60115ECC2BFC69480028D148 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "WebSocketProject Watch App";
-			productName = "WebSocketProject Watch App";
-			productReference = 60115ECE2BFC69480028D148 /* WebSocketProject Watch App.app */;
-			productType = "com.apple.product-type.application";
-		};
 		60867FEB2BE9FC7C00076A6B /* WebsocketProject */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60867FFA2BE9FC7E00076A6B /* Build configuration list for PBXNativeTarget "WebsocketProject" */;
@@ -254,7 +176,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				60115EDA2BFC69490028D148 /* PBXTargetDependency */,
 			);
 			name = WebsocketProject;
 			packageProductDependencies = (
@@ -273,9 +194,6 @@
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
-					60115ECD2BFC69480028D148 = {
-						CreatedOnToolsVersion = 15.3;
-					};
 					60867FEB2BE9FC7C00076A6B = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -297,21 +215,11 @@
 			projectRoot = "";
 			targets = (
 				60867FEB2BE9FC7C00076A6B /* WebsocketProject */,
-				60115ECD2BFC69480028D148 /* WebSocketProject Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		60115ECC2BFC69480028D148 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				60115ED82BFC69490028D148 /* Preview Assets.xcassets in Resources */,
-				60115ED52BFC69490028D148 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		60867FEA2BE9FC7C00076A6B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -325,27 +233,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		60115ECA2BFC69480028D148 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				60115EE02BFC6CB90028D148 /* TestUI.swift in Sources */,
-				60115EED2BFC6D420028D148 /* CoinWatchView.swift in Sources */,
-				60115EE12BFC6CB90028D148 /* WebsocketProjectApp.swift in Sources */,
-				60115EE22BFC6CB90028D148 /* Extension+Bundle.swift in Sources */,
-				60115EE32BFC6CB90028D148 /* UpbitViewModel.swift in Sources */,
-				60115EE42BFC6CB90028D148 /* MarketList.swift in Sources */,
-				60115EEE2BFC6DFB0028D148 /* CoinCharts.swift in Sources */,
-				60115EEF2BFC6DFB0028D148 /* ContentView.swift in Sources */,
-				60115EE52BFC6CB90028D148 /* UpbitManager.swift in Sources */,
-				60115EE82BFC6CB90028D148 /* TickerModel.swift in Sources */,
-				60115EE92BFC6CB90028D148 /* CoinChartsData.swift in Sources */,
-				60115EEA2BFC6CB90028D148 /* MarketModel.swift in Sources */,
-				60115EEB2BFC6CB90028D148 /* ImageCases.swift in Sources */,
-				60115ED32BFC69480028D148 /* WatchContentView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		60867FE82BE9FC7C00076A6B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,77 +254,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		60115EDA2BFC69490028D148 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 60115ECD2BFC69480028D148 /* WebSocketProject Watch App */;
-			targetProxy = 60115ED92BFC69490028D148 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		60115EDD2BFC69490028D148 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WebSocketProject Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = S68RW89WQA;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = WebSocketProject;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.black-rubber.WebsocketProject";
-				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.black-rubber.WebsocketProject.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
-			};
-			name = Debug;
-		};
-		60115EDE2BFC69490028D148 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WebSocketProject Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = S68RW89WQA;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = WebSocketProject;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.black-rubber.WebsocketProject";
-				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.black-rubber.WebsocketProject.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
-			};
-			name = Release;
-		};
 		60867FF82BE9FC7E00076A6B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -622,15 +439,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		60115EDC2BFC69490028D148 /* Build configuration list for PBXNativeTarget "WebSocketProject Watch App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				60115EDD2BFC69490028D148 /* Debug */,
-				60115EDE2BFC69490028D148 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		60867FE72BE9FC7C00076A6B /* Build configuration list for PBXProject "WebsocketProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

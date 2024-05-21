@@ -8,7 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    //market data 
+   
+    
+    var body: some View {
+        IphoneView()
+    }
+}
+
+struct IphoneView: View {
     @ObservedObject var marketList: MarketList = MarketList()
     
     var body: some View {
@@ -46,17 +53,16 @@ private struct CoinListCell: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 20)
+                .foregroundStyle(Color.white)
                 .shadow(radius: 5, x:3, y:5)
             HStack{
                 Image(systemName: market.code.hasPrefix("KRW") ? "wonsign.circle" : "dollarsign.circle")
                     .resizable()
                     .scaledToFit()
                     .frame(maxHeight: .infinity)
-                    .foregroundStyle(Color.white)
                     .padding(10)
 //                Spacer()
                 Text(" \(market.korName) \n (\(market.engName)) ")
-                    .foregroundColor(Color.white)
                     .multilineTextAlignment(.leading)
                     .font(.system(size: 30))
                     .minimumScaleFactor(0.3)

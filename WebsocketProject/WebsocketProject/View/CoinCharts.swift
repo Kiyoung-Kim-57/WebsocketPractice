@@ -24,7 +24,7 @@ struct CoinCharts: View {
 //    var geometryHeight: Double
     //numberFormmater
     var numberFormatter: NumberFormatter {
-        var format = NumberFormatter()
+        let format = NumberFormatter()
         format.numberStyle = .decimal
         return format
     }
@@ -32,7 +32,8 @@ struct CoinCharts: View {
     var body: some View {
         ZStack {
             //background
-                
+            Color.white
+                .ignoresSafeArea()
             Group {
                 if let presentPrice = upbitViewModel.presentPriceChartData {
                     if presentPrice.change > 0 {
@@ -125,7 +126,6 @@ struct CoinCharts: View {
                 }
             }
             
-            
             HStack(alignment: .bottom){
                 //Fixed Chart
                 ForEach(upbitViewModel.chartData) { data in
@@ -150,7 +150,7 @@ struct CoinCharts: View {
                 if let presentPrice = upbitViewModel.presentPrice {
                     Text("\(upbitViewModel.market.engName)\n" + (upbitViewModel.market.code.hasPrefix("KRW") ? "₩ " : "$ ") + numberFormatter.string(from: Int(presentPrice) as NSNumber)!)
                         .multilineTextAlignment(.center)
-                        .padding(.top, 130)
+                        .padding(.top, 30)
                         .font(.system(size: 30))
                         .opacity(0.7)
                 }

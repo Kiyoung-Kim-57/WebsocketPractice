@@ -46,6 +46,12 @@ class UpbitViewModel: ObservableObject {
     let normalPepe:ImageCases = .normal
     @Published var randomCrying: ImageCases = .crying1
     @Published var randomHappy: ImageCases = .happy1
+    //OS
+    #if os(watchOS)
+    let device:DeviceCase = .watch
+    #else
+    let device:DeviceCase = .iphone
+    #endif
     
     init(market: MarketModel) {
         self.market = market
@@ -90,7 +96,7 @@ class UpbitViewModel: ObservableObject {
             guard let self = self, let price = presentPriceChartData else  { return }
             
             self.isPrevChecked = false
-            if self.chartData.count > 13 {
+            if self.chartData.count > 10 {
                 self.chartData = Array(self.chartData.dropFirst())
             }
             self.chartData.append(price)
@@ -117,4 +123,7 @@ class UpbitViewModel: ObservableObject {
 }
 
 
-
+enum DeviceCase {
+    case watch
+    case iphone
+}

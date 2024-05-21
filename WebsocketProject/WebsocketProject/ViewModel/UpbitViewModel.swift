@@ -9,7 +9,9 @@ import Foundation
 import Combine
 
 class UpbitViewModel: ObservableObject {
-    @Published var presentPrice: CoinChartsData?
+    @Published var presentPriceChartData: CoinChartsData?
+    @Published var offset: Double?
+    @Published var presentPrice: Double?
     @Published var chartData: [CoinChartsData] = [
         //Bitcoin Test Code
 //        .init(id: UUID(), presentPrice: 91300000, prevPrice: 91300000, prevChange: 0, startLine: 0, highestPrice: 12, lowestPrice: 3, chartTime: "11:00"),
@@ -38,16 +40,23 @@ class UpbitViewModel: ObservableObject {
     //Combine Variables
     var dataPassThrough = PassthroughSubject<TickerModel,Never>()
     var cancellable = Set<AnyCancellable>()
+    //Image Array
+    let cryingPepes:[ImageCases] = [.crying1,.crying2,.crying3,.crying4]
+    let happyPepes:[ImageCases] = [.happy1,.happy2,.happy3]
+    let normalPepe:ImageCases = .normal
+    @Published var randomCrying: ImageCases = .crying1
+    @Published var randomHappy: ImageCases = .happy1
     
     init(market: MarketModel) {
         self.market = market
         //객체가 생성될 때 웹소켓에 연결 후 메시지 전송
 //        UpbitManager.shared.connect()
 //        UpbitManager.shared.sendMessage(market.code)
+//        UpbitManager.shared.receiveMessage(subject: self.dataPassThrough)
         
        
         //웹소켓으로 받은 데이터를 컴바인으로 처리
-        UpbitManager.shared.dataPassThrough
+        dataPassThrough
             .receive(on: DispatchQueue.main)
             .sink { [weak self] ticker in
                 guard let self = self else { return }
@@ -62,7 +71,9 @@ class UpbitViewModel: ObservableObject {
                 }
                 isFirstChecked = true
                 
-                self.presentPrice = CoinChartsData(id: UUID(),
+                self.presentPrice = ticker.tradePrice
+                
+                self.presentPriceChartData = CoinChartsData(id: UUID(),
                                                    presentPrice: ticker.tradePrice,
                                                    prevPrice: prevPrice ?? 0,
                                                    prevChange: chartData[chartData.count - 1].change,
@@ -70,20 +81,22 @@ class UpbitViewModel: ObservableObject {
                                                    highestPrice: ticker.highPrice,
                                                    lowestPrice: ticker.lowPrice,
                                                    chartTime: ticker.tradeTime)
+                
             }
             .store(in: &cancellable)
         //5초에 한번씩 값 저장
         timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { [weak self] _ in
             
-            guard let self = self, let price = presentPrice else  { return }
+            guard let self = self, let price = presentPriceChartData else  { return }
             
             self.isPrevChecked = false
-            if self.chartData.count > 19 {
+            if self.chartData.count > 13 {
                 self.chartData = Array(self.chartData.dropFirst())
             }
             self.chartData.append(price)
+            self.offset = chartData[chartData.count - 1].startLine
             //웹소켓에서 데이터 변화가 없어 presentPrice에 변화가 없을 때 생기는 오류 해결
-            self.presentPrice = CoinChartsData(id: UUID(),
+            self.presentPriceChartData = CoinChartsData(id: UUID(),
                                                presentPrice: 0,
                                                prevPrice: 0,
                                                prevChange: chartData[chartData.count - 1].change,
@@ -91,6 +104,8 @@ class UpbitViewModel: ObservableObject {
                                                highestPrice: 0,
                                                lowestPrice: 0,
                                                chartTime: chartData[chartData.count - 1].chartTime)
+            self.randomHappy = happyPepes.randomElement()!
+            self.randomCrying = cryingPepes.randomElement()!
         })
         
     }

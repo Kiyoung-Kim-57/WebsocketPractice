@@ -70,12 +70,11 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
     
     
     func connect() {
-//        print(#function)
+        print(#function)
         let request = URLRequest(url: webSocketUrl)
         
         websocket = URLSession.shared.webSocketTask(with: request)
         websocket?.resume()
-        receiveMessage()
         
         isConnect = true
         ping()
@@ -103,8 +102,8 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
         })
     }
     
-    func receiveMessage() {
-//        print(#function)
+    func receiveMessage(subject: PassthroughSubject<TickerModel, Never>) {
+        print(#function)
         guard let websocket = websocket else { return }
         
         websocket.receive(completionHandler: { [weak self] result in
@@ -115,7 +114,7 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
                 case .data(let data):
                     do {
                         let ticker = try JSONDecoder().decode(TickerModel.self, from: data)
-                        self?.dataPassThrough.send(ticker)
+                        subject.send(ticker)
                     } catch {
                         print("error occured in '\(#function)' : \(error.localizedDescription)")
                     }
@@ -129,7 +128,7 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
                 return
             }
             //지속적인 메시지 수신
-            self?.receiveMessage()
+            self?.receiveMessage(subject: subject)
         })
     }
     
@@ -151,7 +150,7 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
         print(#function)
         print("urlSession Start")
-        receiveMessage()
+        
     }
     
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {

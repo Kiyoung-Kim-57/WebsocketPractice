@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct WebsocketProjectApp: App {
+    @StateObject var marketList: MarketList = MarketList()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            #if os(watchOS)
+            WatchContentView()
+            #else
+            IOSContentView(marketList: marketList)
+            #endif
         }
     }
 }

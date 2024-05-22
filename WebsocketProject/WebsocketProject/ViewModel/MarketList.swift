@@ -15,8 +15,10 @@ class MarketList: ObservableObject {
         UpbitManager.shared.marketCodesRequest {[weak self] result in
             switch result {
             case .success(let success):
-                self?.marketList = success.filter{ $0.code.hasPrefix("KRW") || $0.code.hasPrefix("USDT") }
-//                    .sorted(by: {$0.korName < $1.korName})
+                DispatchQueue.main.async {
+                    self?.marketList = success.filter{ $0.code.hasPrefix("KRW") || $0.code.hasPrefix("USDT") }
+    //                    .sorted(by: {$0.korName < $1.korName})
+                }
             case .failure(let failure):
                 print("error occured in\(#function): \(failure.localizedDescription)")
             }

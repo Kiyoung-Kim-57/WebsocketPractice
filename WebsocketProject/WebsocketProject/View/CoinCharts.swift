@@ -18,10 +18,11 @@ struct CoinCharts: View {
     var screenHeightRatio: CGFloat {
         guard let firstPrice = upbitViewModel.firstPrice else { return 0 }
         //분자 부분에 원하는 비율 전달
-        return 1500 / (firstPrice / 100)
+        return (geoHeight ?? 1500) / (firstPrice / 200)
     }
+    var geoHeight: CGFloat?
+    
     var barWidth: Double = 15
-//    var geometryHeight: Double
     //numberFormmater
     var numberFormatter: NumberFormatter {
         let format = NumberFormatter()
@@ -32,8 +33,8 @@ struct CoinCharts: View {
     var body: some View {
         ZStack {
             //background
-            Color.white
-                .ignoresSafeArea()
+//            Color.white
+//                .ignoresSafeArea()
             Group {
                 if let presentPrice = upbitViewModel.presentPriceChartData {
                     if presentPrice.change > 0 {
@@ -145,7 +146,7 @@ struct CoinCharts: View {
             }
             .offset(y: (upbitViewModel.offset ?? 0) * screenHeightRatio / 2)
             .padding(10)
-            
+            //코인 정보와 가격
             VStack{
                 if let presentPrice = upbitViewModel.presentPrice {
                     Text("\(upbitViewModel.market.engName)\n" + (upbitViewModel.market.code.hasPrefix("KRW") ? "₩ " : "$ ") + numberFormatter.string(from: Int(presentPrice) as NSNumber)!)
@@ -191,6 +192,6 @@ struct chartBar: View {
     }
 }
 //
-#Preview {
-    CoinCharts()
-}
+//#Preview {
+//    CoinCharts()
+//}

@@ -11,6 +11,7 @@ import Charts
 struct CoinCharts: View {
     @ObservedObject var upbitViewModel: UpbitViewModel = UpbitViewModel(market: UpbitManager.shared.marketData[0])
     //코인 종류별 들어오는 가격에 따른 높이 가중치 변화
+    var offset: Double = 0
     var chartOffset: Double {
          upbitViewModel.chartData[upbitViewModel.chartData.count - 1].startLine
     }
@@ -144,7 +145,8 @@ struct CoinCharts: View {
                 UpbitManager.shared.receiveMessage(subject: upbitViewModel.dataPassThrough)
                 UpbitManager.shared.sendMessage(upbitViewModel.market.code)
             }
-            .offset(y: (upbitViewModel.offset ?? 0) * screenHeightRatio / 2)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .offset(y: (upbitViewModel.offset) * screenHeightRatio)
             .padding(10)
             //코인 정보와 가격
             VStack{
@@ -192,6 +194,6 @@ struct chartBar: View {
     }
 }
 //
-//#Preview {
-//    CoinCharts()
-//}
+#Preview {
+    CoinCharts()
+}

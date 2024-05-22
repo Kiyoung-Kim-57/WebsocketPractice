@@ -19,7 +19,7 @@ class UpbitManager: NSObject, URLSessionWebSocketDelegate {
     var dataPassThrough = PassthroughSubject<TickerModel, Never>()
     
     var marketData: [MarketModel] = [
-        .init(code: "KRW-BTC", korName: "비트코인", engName: "Bitcoin"),
+        .init(code: "KRW-ETC", korName: "비트코인", engName: "Bitcoin"),
         .init(code: "KRW-ETH", korName: "이더리움", engName: "Ethereum")
     ]
     
@@ -166,4 +166,7 @@ extension UpbitManager {
     enum ConnectError: Error {
         case connectError
     }
+    
+    //WatchOS용 https 통신
+    
 }

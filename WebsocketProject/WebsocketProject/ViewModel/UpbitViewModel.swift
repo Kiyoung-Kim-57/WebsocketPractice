@@ -10,7 +10,7 @@ import Combine
 
 class UpbitViewModel: ObservableObject {
     @Published var presentPriceChartData: CoinChartsData?
-    @Published var offset: Double?
+    @Published var offset: Double = 0
     @Published var presentPrice: Double?
     @Published var chartData: [CoinChartsData] = [
         //Bitcoin Test Code
@@ -60,7 +60,6 @@ class UpbitViewModel: ObservableObject {
 //        UpbitManager.shared.sendMessage(market.code)
 //        UpbitManager.shared.receiveMessage(subject: self.dataPassThrough)
         
-       
         //웹소켓으로 받은 데이터를 컴바인으로 처리
         dataPassThrough
             .receive(on: DispatchQueue.main)
@@ -100,7 +99,7 @@ class UpbitViewModel: ObservableObject {
                 self.chartData = Array(self.chartData.dropFirst())
             }
             self.chartData.append(price)
-            self.offset = chartData[chartData.count - 1].startLine
+            self.offset += chartData[chartData.count - 1].change
             //웹소켓에서 데이터 변화가 없어 presentPrice에 변화가 없을 때 생기는 오류 해결
             self.presentPriceChartData = CoinChartsData(id: UUID(),
                                                presentPrice: 0,
